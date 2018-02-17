@@ -21,4 +21,5 @@ public class Store {
 
     private Date last_update;
 
+
 }

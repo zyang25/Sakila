@@ -1,49 +1,42 @@
 package com.zyang25.entity;
 
-import org.hibernate.annotations.GeneratorType;
-
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-public class Customer {
+public class Staff {
 
-    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int customer_id;
-
-    @OneToMany
-    @JoinColumn(name = "store_id")
-    private Store store;
+    private int staff_id;
 
     private String first_name;
 
     private String last_name;
 
+    @OneToOne
+    @JoinColumn(name = "address_id")
+    private Address address;
+
     private String email;
 
-    private int address_id;
+    @OneToOne
+    @JoinColumn(name = "store_id")
+    private Store store;
 
     private int active;
 
-    private Date create_date;
+    private String username;
+
+    private String password;
 
     private Date last_update;
 
-    public int getCustomer_id() {
-        return customer_id;
+    public int getStaff_id() {
+        return staff_id;
     }
 
-    public void setCustomer_id(int customer_id) {
-        this.customer_id = customer_id;
-    }
-
-    public Store getStore() {
-        return store;
-    }
-
-    public void setStore(Store store) {
-        this.store = store;
+    public void setStaff_id(int staff_id) {
+        this.staff_id = staff_id;
     }
 
     public String getFirst_name() {
@@ -62,6 +55,14 @@ public class Customer {
         this.last_name = last_name;
     }
 
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -70,12 +71,12 @@ public class Customer {
         this.email = email;
     }
 
-    public int getAddress_id() {
-        return address_id;
+    public Store getStore() {
+        return store;
     }
 
-    public void setAddress_id(int address_id) {
-        this.address_id = address_id;
+    public void setStore(Store store) {
+        this.store = store;
     }
 
     public int getActive() {
@@ -86,12 +87,20 @@ public class Customer {
         this.active = active;
     }
 
-    public Date getCreate_date() {
-        return create_date;
+    public String getUsername() {
+        return username;
     }
 
-    public void setCreate_date(Date create_date) {
-        this.create_date = create_date;
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Date getLast_update() {
