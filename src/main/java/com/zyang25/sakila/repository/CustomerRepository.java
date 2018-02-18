@@ -1,5 +1,5 @@
-package com.zyang25.repository;
-import com.zyang25.entity.Customer;
+package com.zyang25.sakila.repository;
+import com.zyang25.sakila.entity.Customer;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

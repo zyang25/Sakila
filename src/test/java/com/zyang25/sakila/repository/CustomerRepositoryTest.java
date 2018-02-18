@@ -1,17 +1,11 @@
-package com.zyang25.sakila;
+package com.zyang25.sakila.repository;
 
 import com.zyang25.sakila.entity.Customer;
 import com.zyang25.sakila.entity.Store;
-import com.zyang25.sakila.repository.CustomerRepository;
 
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import javax.persistence.EntityManager;
-
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
