@@ -1,14 +1,14 @@
-package com.zyang25.entity;
+package com.zyang25.sakila.entity;
 
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 public class Address {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int address_id;
 
     private String address;

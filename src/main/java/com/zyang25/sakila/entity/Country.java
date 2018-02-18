@@ -1,4 +1,4 @@
-package com.zyang25.entity;
+package com.zyang25.sakila.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

@@ -1,13 +1,13 @@
-package com.zyang25.entity;
+package com.zyang25.sakila.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 public class City {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int city_id;
 
     private String city;
