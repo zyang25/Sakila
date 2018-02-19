@@ -3,8 +3,9 @@ package com.zyang25.sakila;
 import com.zyang25.sakila.entity.Customer;
 import com.zyang25.sakila.entity.Store;
 import com.zyang25.sakila.repository.CustomerRepository;
+import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.BeforeEach;
+
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -22,17 +23,16 @@ public class SakilaApplicationTests {
 	private Customer customer;
 	private Store store;
 
-	@BeforeEach
-	void setUp() {
+	@Before
+	public void setUp() {
 		store = new Store(1);
-
+        customer = new Customer(store, "Zihao","Yang", "zyang25@stevens.edu",3,1);
 	}
 
-
-	@Test
+    @Test
 	public void contextLoads() {
 
-		customer = new Customer(store, "Zihao","Yang", "zyang25@stevens.edu",3,1);
+
 		Customer res = customerRepository.save(customer);
 		assertThat(res).hasFieldOrPropertyWithValue("lastName", "Yang");
 		assertThat(res).hasFieldOrPropertyWithValue("email", "zyang25@stevens.edu");
