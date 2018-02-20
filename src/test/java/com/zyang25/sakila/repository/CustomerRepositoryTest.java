@@ -2,6 +2,7 @@ package com.zyang25.sakila.repository;
 
 import com.sun.deploy.association.utility.AppUtility;
 import com.zyang25.sakila.entity.Address;
+import com.zyang25.sakila.entity.City;
 import com.zyang25.sakila.entity.Customer;
 import com.zyang25.sakila.entity.Store;
 
@@ -37,14 +38,15 @@ public class CustomerRepositoryTest {
     private Customer customer;
     private Store store;
     private Address address;
+    private City city;
 
     @Before
     public void setUp() {
         initSize = (int) customerRepository.count();
-
-
-        address = new Address();
+        address = new Address("","","", city,"","");
         Address resAddress = entityManager.persist(address);
+
+        store = new Store(address);
         Store resStore = entityManager.persist(store);
 
 
@@ -78,7 +80,7 @@ public class CustomerRepositoryTest {
 
     @Test
     public void when_findCustomerWhoPayTheMost_then_returnCustomer(){
-        Query q = entityManager.getEntityManager().createQuery("select customer_id from payment");
+        //Query q = entityManager.getEntityManager().createQuery("select customer_id from payment");
         //Query q = entityManager.getEntityManager().createQuery("select customer_id from payment p group by customer_id");
         //Object o = q.getResultList().get(0);
         //System.out.println(o.toString());

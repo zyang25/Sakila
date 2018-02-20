@@ -49,4 +49,11 @@ public class City {
     public void setLast_update(Date last_update) {
         this.last_update = last_update;
     }
+
+    protected City(){}
+
+    public City(String city, Country country) {
+        this.city = city;
+        this.country = country;
+    }
 }

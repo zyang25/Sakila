@@ -23,12 +23,12 @@ public class SakilaApplicationTests {
 
 	private Customer customer;
 	private Store store;
+	private Address address;
 
 	@Before
 	public void setUp() {
-	    Address address = new Address();
 
-		store = new Store(1);
+		store = new Store(address);
         customer = new Customer(store, "Zihao","Yang", "zyang25@stevens.edu",address,1);
 	}
 

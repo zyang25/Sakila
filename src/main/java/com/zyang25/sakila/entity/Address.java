@@ -92,6 +92,15 @@ public class Address implements Serializable{
         this.last_update = last_update;
     }
 
+    protected Address(){}
 
+    public Address(String address, String address2, String district, City city, String postal_code, String phone) {
+        this.address = address;
+        this.address2 = address2;
+        this.district = district;
+        this.city = city;
+        this.postal_code = postal_code;
+        this.phone = phone;
 
+    }
 }

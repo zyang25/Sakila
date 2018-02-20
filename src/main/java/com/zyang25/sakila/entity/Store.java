@@ -2,10 +2,7 @@ package com.zyang25.sakila.entity;
 
 import org.hibernate.annotations.GeneratorType;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -17,7 +14,9 @@ public class Store {
 
     private int manager_staff_id;
 
-    private int address_id;
+    @OneToOne
+    @JoinColumn(name = "address_id")
+    private Address address;
 
     private Date last_update;
 
@@ -37,12 +36,12 @@ public class Store {
         this.manager_staff_id = manager_staff_id;
     }
 
-    public int getAddress_id() {
-        return address_id;
+    public Address getAddress() {
+        return address;
     }
 
-    public void setAddress_id(int address_id) {
-        this.address_id = address_id;
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     public Date getLast_update() {
@@ -55,7 +54,7 @@ public class Store {
 
     protected Store(){}
 
-    public Store(int address_id) {
-        this.address_id = address_id;
+    public Store(Address address) {
+        this.address = address;
     }
 }
