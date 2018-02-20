@@ -24,7 +24,9 @@ public class Customer implements Serializable {
 
     private String email;
 
-    private int address_id;
+    @OneToOne
+    @JoinColumn(name = "address_id")
+    private Address address;
 
     private int active;
 
@@ -34,13 +36,14 @@ public class Customer implements Serializable {
 
     protected Customer(){}
 
-    public Customer(Store store, String firstName, String lastName, String email, int address_id, int active) {
+    public Customer(Store store, String firstName, String lastName, String email, Address address, int active) {
         this.store = store;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.address_id = address_id;
+        this.address = address;
         this.active = active;
+
     }
 
     public int getCustomer_id() {
@@ -83,12 +86,12 @@ public class Customer implements Serializable {
         this.email = email;
     }
 
-    public int getAddress_id() {
-        return address_id;
+    public Address getAddress() {
+        return address;
     }
 
-    public void setAddress_id(int address_id) {
-        this.address_id = address_id;
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     public int getActive() {
@@ -115,18 +118,5 @@ public class Customer implements Serializable {
         this.last_update = last_update;
     }
 
-    @Override
-    public String toString() {
-        return "Customer{" +
-                "customer_id=" + customer_id +
-                ", store=" + store +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", address_id=" + address_id +
-                ", active=" + active +
-                ", create_date=" + create_date +
-                ", last_update=" + last_update +
-                '}';
-    }
+
 }

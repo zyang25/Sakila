@@ -13,7 +13,7 @@ public class Country {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int country_id;
 
-    private int country;
+    private String country;
 
     private Date last_update;
 
@@ -25,11 +25,11 @@ public class Country {
         this.country_id = country_id;
     }
 
-    public int getCountry() {
+    public String getCountry() {
         return country;
     }
 
-    public void setCountry(int country) {
+    public void setCountry(String country) {
         this.country = country;
     }
 

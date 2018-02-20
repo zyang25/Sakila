@@ -1,5 +1,6 @@
 package com.zyang25.sakila;
 
+import com.zyang25.sakila.entity.Address;
 import com.zyang25.sakila.entity.Customer;
 import com.zyang25.sakila.entity.Store;
 import com.zyang25.sakila.repository.CustomerRepository;
@@ -25,8 +26,10 @@ public class SakilaApplicationTests {
 
 	@Before
 	public void setUp() {
+	    Address address = new Address();
+	    address.setAddress_id(1);
 		store = new Store(1);
-        customer = new Customer(store, "Zihao","Yang", "zyang25@stevens.edu",3,1);
+        customer = new Customer(store, "Zihao","Yang", "zyang25@stevens.edu",address,1);
 	}
 
     @Test

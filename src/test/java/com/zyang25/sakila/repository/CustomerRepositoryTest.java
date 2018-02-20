@@ -1,6 +1,7 @@
 package com.zyang25.sakila.repository;
 
 import com.sun.deploy.association.utility.AppUtility;
+import com.zyang25.sakila.entity.Address;
 import com.zyang25.sakila.entity.Customer;
 import com.zyang25.sakila.entity.Store;
 
@@ -35,12 +36,15 @@ public class CustomerRepositoryTest {
     private int initSize;
     private Customer customer;
     private Store store;
+    private Address address;
 
     @Before
     public void setUp() {
         initSize = (int) customerRepository.count();
         store = new Store(1);
-        customer = new Customer(store, "Zihao","Yang", "zyang25@stevens.edu",3,1);
+        address = new Address();
+        address.setAddress_id(1);
+        customer = new Customer(store, "Zihao","Yang", "zyang25@stevens.edu",address,1);
     }
 
     @Test
