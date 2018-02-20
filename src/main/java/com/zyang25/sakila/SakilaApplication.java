@@ -1,7 +1,9 @@
 package com.zyang25.sakila;
 
 import com.zyang25.sakila.entity.Customer;
+import com.zyang25.sakila.entity.Payment;
 import com.zyang25.sakila.repository.CustomerRepository;
+import com.zyang25.sakila.repository.PaymentRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -20,13 +22,16 @@ public class SakilaApplication {
 	    SpringApplication.run(SakilaApplication.class, args);
 	}
 
-//	@Bean
-//	public CommandLineRunner demo(){
-//		return(args) ->{
-//			log.info("Application info");
-//			log.debug("Application debug");
-//            Customer customer = customerRepository.findOne(1);
-//            log.info(customer.toString());
-//		};
-//	}
+	@Autowired
+	PaymentRepository paymentRepository;
+
+	@Bean
+	public CommandLineRunner demo(){
+		return(args) ->{
+			log.info("Application info");
+			log.debug("Application debug");
+			Payment payment = paymentRepository.findOne(1);
+            log.info(payment.toString());
+		};
+	}
 }
