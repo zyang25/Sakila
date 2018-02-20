@@ -41,17 +41,23 @@ public class CustomerRepositoryTest {
     @Before
     public void setUp() {
         initSize = (int) customerRepository.count();
-        store = new Store(1);
+
+
         address = new Address();
-        address.setAddress_id(1);
-        customer = new Customer(store, "Zihao","Yang", "zyang25@stevens.edu",address,1);
+        Address resAddress = entityManager.persist(address);
+        Store resStore = entityManager.persist(store);
+
+
+        customer = new Customer(resStore, "Zihao","Yang", "zyang25@stevens.edu",resAddress,1);
     }
 
     @Test
     public void whenFindByLastName_thenReturnCustomer() {
 
-        entityManager.persist(store);
-        entityManager.flush();
+        //entityManager.persist(address);
+        //entityManager.persist(store);
+        //entityManager.flush();
+
         entityManager.persist(customer);
         entityManager.flush();
         assertThat(customerRepository.count()).isEqualTo(initSize+1);

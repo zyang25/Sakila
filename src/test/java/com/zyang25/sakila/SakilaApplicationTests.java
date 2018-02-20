@@ -27,7 +27,7 @@ public class SakilaApplicationTests {
 	@Before
 	public void setUp() {
 	    Address address = new Address();
-	    address.setAddress_id(1);
+
 		store = new Store(1);
         customer = new Customer(store, "Zihao","Yang", "zyang25@stevens.edu",address,1);
 	}

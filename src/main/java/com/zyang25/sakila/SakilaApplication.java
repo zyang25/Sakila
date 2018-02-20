@@ -25,13 +25,13 @@ public class SakilaApplication {
 	@Autowired
 	PaymentRepository paymentRepository;
 
-	@Bean
-	public CommandLineRunner demo(){
-		return(args) ->{
-			log.info("Application info");
-			log.debug("Application debug");
-			Payment payment = paymentRepository.findOne(1);
-            log.info(payment.toString());
-		};
-	}
+//	@Bean
+//	public CommandLineRunner demo(){
+//		return(args) ->{
+//			log.info("Application info");
+//			log.debug("Application debug");
+//			Payment payment = paymentRepository.findOne(1);
+//            log.info(payment.toString());
+//		};
+//	}
 }

@@ -2,10 +2,11 @@ package com.zyang25.sakila.entity;
 
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-public class Address {
+public class Address implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -90,4 +91,7 @@ public class Address {
     public void setLast_update(Date last_update) {
         this.last_update = last_update;
     }
+
+
+
 }
