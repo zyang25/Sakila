@@ -1,12 +1,11 @@
 package com.zyang25.sakila.repository;
 
-import com.sun.deploy.association.utility.AppUtility;
+
 import com.zyang25.sakila.entity.Address;
 import com.zyang25.sakila.entity.City;
 import com.zyang25.sakila.entity.Customer;
 import com.zyang25.sakila.entity.Store;
 
-import org.hibernate.annotations.Synchronize;
 import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -14,10 +13,6 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.junit.Test;
-
-import javax.persistence.EntityManager;
-import javax.persistence.Query;
-import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
