@@ -74,5 +74,16 @@ public class Payment {
         this.last_update = last_update;
     }
 
-
+    @Override
+    public String toString() {
+        return "Payment{" +
+                "payment_id=" + payment_id +
+                ", customer=" + customer +
+                ", staff=" + staff +
+                ", rental_id=" + rental_id +
+                ", amount=" + amount +
+                ", payment_date=" + payment_date +
+                ", last_update=" + last_update +
+                '}';
+    }
 }

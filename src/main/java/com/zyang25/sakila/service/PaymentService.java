@@ -10,17 +10,16 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class CustomerService {
-
-    @Autowired
-    private CustomerRepository customerRepository;
+public class PaymentService {
 
     @Autowired
     private PaymentRepository paymentRepository;
 
-    public Customer getCustomerById(int id){
-        return customerRepository.findOne(id);
+    @Autowired
+    private CustomerRepository customerRepository;
+
+    public List<Payment> findPaymentsByCustomerId(int id){
+        Customer customer = customerRepository.findOne(id);
+        return paymentRepository.findByCustomer(customer);
     }
-
-
 }

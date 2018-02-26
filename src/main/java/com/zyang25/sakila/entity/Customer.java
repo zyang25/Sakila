@@ -3,6 +3,7 @@ package com.zyang25.sakila.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -34,6 +35,10 @@ public class Customer {
 
     private Date last_update;
 
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "payment_id")
+    private List<Payment> paymentList;
+
     protected Customer(){}
 
     public Customer(Store store, String firstName, String lastName, String email, Address address, int active) {
@@ -44,6 +49,14 @@ public class Customer {
         this.address = address;
         this.active = active;
 
+    }
+
+    public List<Payment> getPaymentList() {
+        return paymentList;
+    }
+
+    public void setPaymentList(List<Payment> paymentList) {
+        this.paymentList = paymentList;
     }
 
     public int getCustomer_id() {
